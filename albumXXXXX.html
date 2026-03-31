@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jersey+10&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Pixelify+Sans:wght@400..700&display=swap"
+        rel="stylesheet">
+    <title>Surveillance Logs - Breaking The Hiatus ARG</title>
+</head>
+
+<body>
+    <div class="content-container">
+        <div class="text-code-panel pageX-panel pixel-art-border">
+            mana ukhwah yang kau kata kau nak cipta?
+            <br><br>
+            mana ukhwah yang kau kata kau nak pelihara?
+            <br><br>
+            hanya sebab harta kau lalai dan tewas?
+            <br><br>
+            hanya sebab kau ada masalah lain kau lari?
+            <br><br>
+            dia besarkan kau sebagai anak macam tu ke?
+            <br><br>
+            kalau dia hidup semula, soal kau apa yang kau dah buat, kau nak jawab apa?
+            <br><br>
+            atau ini semua sebenarnya salah orang lain?
+            <br>
+
+            <div class="carousel-container">
+                <button class="carousel-nav-btn btn-prev" onclick="moveCarousel(-1)">&#10094;</button>
+                <button class="carousel-nav-btn btn-next" onclick="moveCarousel(1)">&#10095;</button>
+
+                <div class="carousel-track" id="imageTrack">
+                    <div class="carousel-slide"><img src="albumXXXXX/one.jpg" alt="Image 1"></div>
+                    <div class="carousel-slide"><img src="albumXXXXX/two.jpeg" alt="Image 2"></div>
+                    <div class="carousel-slide"><img src="albumXXXXX/three.jpeg" alt="Image 3"></div>
+                    <div class="carousel-slide"><img src="albumXXXXX/four.jpg" alt="Image 4"></div>
+                    <div class="carousel-slide"><img src="albumXXXXX/five.jpg" alt="Image 5"></div>
+                    <div class="carousel-slide"><img src="albumXXXXX/six.jpg" alt="Image 6"></div>
+                    <div class="carousel-slide"><img src="albumXXXXX/seven.jpg" alt="Image 7"></div>
+                    <div class="carousel-slide"><img src="albumXXXXX/eight.jpg" alt="Image 8"></div>
+                </div>
+            </div>
+
+            <br>
+            <button id="nextPageButton" class="btn" onclick="window.location.href='https://sites.google.com/view/iqbal-breaking-the-hiatus-arg/the-story'">enough of
+                this!!!</button>
+        </div>
+    </div>
+
+    <script>
+        const track = document.getElementById('imageTrack');
+        const slides = Array.from(track.children);
+        let currentIndex = 0;
+        let autoPlayTimer; // Holds the timer so we can reset it
+
+        // Function to actually slide the images
+        function updateCarouselView() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        // Function triggered by manual clicks OR the auto-timer
+        function moveCarousel(direction) {
+            currentIndex += direction;
+
+            // Loop back to start if we go past the end
+            if (currentIndex >= slides.length) {
+                currentIndex = 0;
+            } 
+            // Loop to the end if we go backwards from the start
+            else if (currentIndex < 0) {
+                currentIndex = slides.length - 1;
+            }
+
+            updateCarouselView();
+            resetAutoPlay(); // Resets the 2-second countdown so it doesn't interrupt the user
+        }
+
+        // Resets and restarts the interval timer
+        function resetAutoPlay() {
+            clearInterval(autoPlayTimer); // Stop the current countdown
+            autoPlayTimer = setInterval(function() {
+                moveCarousel(1); // Auto-advance by 1
+            }, 3000); // 3000 ms = 3 seconds
+        }
+
+        // Start the carousel when the page loads
+        resetAutoPlay();
+    </script>
+</body>
+
+</html>
