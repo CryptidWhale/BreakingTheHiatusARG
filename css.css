@@ -1,0 +1,172 @@
+body {
+  background-color: #1a1a1a; /* Off-black background */
+  color: #ddd; /* Light gray text */
+  margin: 0;
+  padding: 0;
+    font-family: 'Pixelify Sans', sans-serif; 
+    font-size: 30px;
+}
+
+.content-container {
+  width: 80%;
+  margin: 20px auto;
+  padding: 0 5%;
+  box-sizing: border-box;
+}
+
+.text-code-panel {
+  padding: 20px;
+  border: 4px solid #555;
+  box-shadow: 4px 4px #000;
+}
+
+/* Page-specific panel colors */
+
+.page-panel {
+  background-color: #0080FF; /* Reddish panel for Page 2 */
+  color: black; 
+}
+
+.text-code-panel pre {
+  background-color: #333;
+  color: #00ff00;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+/* Pixel Art Border CSS */
+.pixel-art-border {
+    position: relative;
+    padding: 20px;
+}
+
+.pixel-art-border::before,
+.pixel-art-border::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+}
+
+.pixel-art-border::before {
+    top: 0;
+    left: 0;
+    background-image:
+        linear-gradient(to right, #555 0%, #555 80%, transparent 80%, transparent 100%),
+        linear-gradient(to bottom, #555 0%, #555 80%, transparent 80%, transparent 100%);
+    background-repeat: no-repeat;
+}
+
+.pixel-art-border::after {
+    bottom: 0;
+    right: 0;
+    background-image:
+        linear-gradient(to left, #555 0%, #555 80%, transparent 80%, transparent 100%),
+        linear-gradient(to top, #555 0%, #555 80%, transparent 80%, transparent 100%);
+    background-repeat: no-repeat;
+}
+
+.pixel-art-border {
+    border-image: linear-gradient(to right, #555 0%, #555 5%, transparent 5%, transparent 95%, #555 95%, #555 100%) 16;
+    border-image-slice: 16;
+    border-image-repeat: repeat;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+}
+
+.key-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Increased gap for better spacing */
+    margin-bottom: 10px;
+}
+
+.key-inputs input {
+    width: 40px; /* Increased width for larger input boxes */
+    height: 40px; /* Increased height for larger input boxes */
+    text-align: center;
+    text-transform: uppercase;
+    font-size: inherit; /* Inherit font size from body */
+    font-family: inherit; /* Inherit font family from body */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.key-inputs input:focus {
+    outline: none;
+    border-color: #007bff; /* Example focus color */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Example focus shadow */
+}
+
+button {
+    font-size: inherit; /* Inherit font size from body */
+    font-family: inherit; /* Inherit font family from body */
+    padding: 10px 20px;
+    background-color: #777;
+    color: inherit;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    transform: scale(1.03);
+}
+
+.reality {
+    font-style: italic; /* Apply italic style to reality text */
+}
+
+.dream {
+  line-height: 1.6; /* Add consistent line spacing */
+}
+
+/* Optional: Additional styling for both sections */
+.reality,
+.dream {
+    margin-bottom: 20px; /* Add space between sections */
+}
+
+.dream p {
+    margin-bottom: 15px; /* Add consistent paragraph spacing */
+}
+
+.dream b { /* Style dialogue names */
+    font-weight: bold;
+}
+
+.key-hide{
+   display: none;
+}
+
+.hidden-code1, .hidden-code2, .hidden-code3{
+  display: block;
+   font-family: 'Jersey 10', sans-serif; 
+}
+
+/* Media Query for Mobile Screens */
+@media (max-width: 768px) {
+    body {
+        font-size: 20px; /* Adjust font size for smaller screens */
+    }
+
+    .content-container {
+        width: 95%; /* Make content container full width on mobile */
+        padding: 5px;
+    }
+
+    .text-code-panel {
+        padding: 10px; /* Reduce padding on mobile */
+    }
+
+    .key-inputs {
+        flex-direction: column; /* Stack input boxes vertically on mobile */
+        align-items: center; /* Center input boxes on mobile */
+    }
+
+    .key-inputs input {
+        width: 80%; /* Make input boxes wider on mobile */
+        margin-bottom: 5px; /* Add space between input boxes on mobile */
+    }
+}
